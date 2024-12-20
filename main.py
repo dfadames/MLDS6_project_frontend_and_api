@@ -1,13 +1,17 @@
 from fastapi import FastAPI, UploadFile, File
 from fastapi.responses import JSONResponse
 from keras.models import load_model
+import tensorflow as tf
 import numpy as np
 from PIL import Image
 from io import BytesIO
 from dataTransformation import convertOneChanneltoThreeChannels, resizeImage, convert_to_jpeg
-
 import os
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+os.environ["TF_ENABLE_ONEDNN_OPTS"]="0"
+
+tf.config.set_visible_devices([], 'GPU')
 
 # Initialize FastAPI app
 app = FastAPI()

@@ -6,6 +6,9 @@ from PIL import Image
 from io import BytesIO
 from dataTransformation import convertOneChanneltoThreeChannels, resizeImage, convert_to_jpeg
 
+import os
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
 # Initialize FastAPI app
 app = FastAPI()
 

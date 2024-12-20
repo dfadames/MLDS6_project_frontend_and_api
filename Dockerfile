@@ -1,11 +1,11 @@
-# Use the official Python image
-FROM python:3.11.4
+FROM python:3.11-slim
+
 # Set the working directory inside the container
 WORKDIR /app
 
-# Install system dependencies
+# Install system dependencies for OpenCV
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1 \
+    libgl1-mesa-glx \
     libglib2.0-0 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
